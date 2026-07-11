@@ -1,0 +1,18 @@
+# Backend - .NET
+backend/**/bin/
+backend/**/obj/
+backend/**/*.user
+
+# Frontend - Node/React
+frontend/node_modules/
+frontend/dist/
+
+# Variáveis de ambiente (nunca commitar segredos!)
+**/.env
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
