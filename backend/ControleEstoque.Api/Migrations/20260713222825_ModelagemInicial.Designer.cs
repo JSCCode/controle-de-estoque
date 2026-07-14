@@ -3,6 +3,7 @@ using System;
 using ControleEstoque.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ControleEstoque.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260713222825_ModelagemInicial")]
+    partial class ModelagemInicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,30 +94,6 @@ namespace ControleEstoque.Api.Migrations
                         .IsUnique();
 
                     b.ToTable("Produtos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DataAtualizacao = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                            DataCriacao = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Descricao = "Caneta esferografica, ponta media, tinta azul",
-                            Nome = "Caneta Esferografica Azul",
-                            PrecoUnitario = 2.50m,
-                            QuantidadeEstoque = 100,
-                            Sku = "CAN-AZ-001"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DataAtualizacao = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                            DataCriacao = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Descricao = "Caderno espiral, capa dura, 200 folhas",
-                            Nome = "Caderno Universitario 10 Materias",
-                            PrecoUnitario = 24.90m,
-                            QuantidadeEstoque = 40,
-                            Sku = "CAD-UNI-010"
-                        });
                 });
 
             modelBuilder.Entity("ControleEstoque.Api.Models.Usuario", b =>

@@ -1,0 +1,29 @@
+[33mcommit a96489870ffc04a9ce7d05ae1e5684dd19899a14[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: João Cordeiro <jsantanacord@gmail.com>
+Date:   Mon Jul 13 16:55:41 2026 -0300
+
+    feat: modela entidades e configura conexão inicial com PostgreSQL
+
+[33mcommit 99b07e9b874a05b1ea7ef7ea2d6649c61937bb49[m
+Author: João Cordeiro <jsantanacord@gmail.com>
+Date:   Mon Jul 13 02:26:57 2026 -0300
+
+    chore: configura infraestrutura inicial do banco de dados
+
+[33mcommit c0dbb43869d5f91782cde4c01a02e58a5c77274b[m
+Author: João Cordeiro <jsantanacord@gmail.com>
+Date:   Sat Jul 11 23:31:42 2026 -0300
+
+    chore: instala pacotes do Entity Framework Core
+
+[33mcommit 9d4c2338d1ea69cf92eb884312dffd1039de7bc7[m
+Author: João Cordeiro <jsantanacord@gmail.com>
+Date:   Sat Jul 11 19:47:51 2026 -0300
+
+    feat: cria esqueleto do backend (ASP.NET) e frontend (React)
+
+[33mcommit 617a55eded8f1bea434faa32473fd18d6042ab4a[m
+Author: João Cordeiro <jsantanacord@gmail.com>
+Date:   Sat Jul 11 18:24:35 2026 -0300
+
+    chore: setup inicial do repositorio

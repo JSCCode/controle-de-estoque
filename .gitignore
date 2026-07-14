@@ -7,7 +7,7 @@ backend/**/*.user
 frontend/node_modules/
 frontend/dist/
 
-# Variáveis de ambiente (nunca commitar segredos!)
+# Variáveis de ambiente
 **/.env
 
 # Editor

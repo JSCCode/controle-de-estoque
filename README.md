@@ -1,7 +1,6 @@
 # Controle de Estoque
 
 Sistema simples de controle de estoque para uma pequena empresa de varejo.
-Case técnico - Desenvolvedor(a) Full-Stack Júnior - Keener.
 
 ## Stack
 - Backend: C# (.NET 8) com ASP.NET Core
