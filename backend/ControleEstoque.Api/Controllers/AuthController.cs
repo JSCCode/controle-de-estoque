@@ -2,12 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
 using ControleEstoque.Api.Data;
 using ControleEstoque.Api.Models;
 using ControleEstoque.Api.DTOs;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+
 
 namespace ControleEstoque.Api.Controllers;
 
@@ -73,6 +75,17 @@ public class AuthController : ControllerBase
 
         return Ok(new { token });
     }
+
+    [Authorize]
+    [HttpGet("perfil")]
+    public IActionResult Perfil()
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var email = User.FindFirst(ClaimTypes.Email)?.Value;
+
+        return Ok(new { userId, email });
+    }
+    
 
     private string GerarToken(Usuario usuario)
     {
