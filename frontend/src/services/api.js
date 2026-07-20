@@ -29,3 +29,69 @@ export async function registrar(nome, email, senha) {
 
   return await resposta.json();
 }
+
+export async function listarProdutos(token) {
+  const resposta = await fetch(`${API_URL}/produtos`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  if (!resposta.ok) {
+    throw new Error("Erro ao carregar produtos.");
+  }
+
+  return await resposta.json();
+}
+
+export async function criarProduto(token, produto) {
+  const resposta = await fetch(`${API_URL}/produtos`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(produto),
+  });
+
+  if (!resposta.ok) {
+    const erro = await resposta.json();
+    throw new Error(erro.mensagem || "Erro ao criar produto.");
+  }
+
+  return await resposta.json();
+}
+
+export async function buscarProduto(token, id) {
+  const resposta = await fetch(`${API_URL}/produtos/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  if (!resposta.ok) throw new Error("Produto não encontrado.");
+  return await resposta.json();
+}
+
+export async function atualizarProduto(token, id, produto) {
+  const resposta = await fetch(`${API_URL}/produtos/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(produto),
+  });
+
+  if (!resposta.ok) {
+    const erro = await resposta.json();
+    throw new Error(erro.mensagem || "Erro ao atualizar.");
+  }
+
+  return await resposta.json();
+}
+
+export async function excluirProduto(token, id) {
+  const resposta = await fetch(`${API_URL}/produtos/${id}`, {
+    method: "DELETE",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  if (!resposta.ok) throw new Error("Erro ao excluir.");
+}
