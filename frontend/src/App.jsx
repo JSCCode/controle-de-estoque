@@ -6,6 +6,8 @@ import Cadastro from "./pages/Cadastro";
 import Produtos from "./pages/Produtos";
 import NovoProduto from "./pages/NovoProduto";
 import EditarProduto from "./pages/EditarProduto";
+import Movimentacao from "./pages/Movimentacao";
+import Historico from "./pages/Historico";
 
 function App() {
   return (
@@ -35,6 +37,22 @@ function App() {
             element={
               <RotaProtegida>
                 <EditarProduto />
+              </RotaProtegida>
+            }
+          />
+          <Route
+            path="/produtos/:id/movimentacao"
+            element={
+              <RotaProtegida>
+                <Movimentacao />
+              </RotaProtegida>
+            }
+          />
+          <Route
+            path="/produtos/:id/historico"
+            element={
+              <RotaProtegida>
+                <Historico />
               </RotaProtegida>
             }
           />

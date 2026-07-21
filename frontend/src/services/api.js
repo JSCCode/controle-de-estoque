@@ -95,3 +95,30 @@ export async function excluirProduto(token, id) {
 
   if (!resposta.ok) throw new Error("Erro ao excluir.");
 }
+
+export async function registrarMovimentacao(token, movimentacao) {
+  const resposta = await fetch(`${API_URL}/movimentacoes`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(movimentacao),
+  });
+
+  if (!resposta.ok) {
+    const erro = await resposta.json();
+    throw new Error(erro.mensagem || "Erro ao registrar movimentação.");
+  }
+
+  return await resposta.json();
+}
+
+export async function historicoPorProduto(token, produtoId) {
+  const resposta = await fetch(`${API_URL}/movimentacoes/produto/${produtoId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  if (!resposta.ok) throw new Error("Erro ao carregar histórico.");
+  return await resposta.json();
+}

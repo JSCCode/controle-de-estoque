@@ -56,6 +56,8 @@ export default function Produtos() {
               <td>
                 <Link to={`/produtos/editar/${produto.id}`}>Editar</Link>
                 <button onClick={() => handleExcluir(produto.id)}>Excluir</button>
+                <Link to={`/produtos/${produto.id}/movimentacao`}>Movimentar</Link>
+                <Link to={`/produtos/${produto.id}/historico`}>Histórico</Link>
               </td>
             </tr>
          ))}
