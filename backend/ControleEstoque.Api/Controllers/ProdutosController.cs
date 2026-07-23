@@ -20,10 +20,30 @@ public class ProdutosController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Listar()
+    public async Task<IActionResult> Listar(string? busca, int pagina = 1, int tamanhoPagina = 10)
     {
-        var produtos = await _context.Produtos.ToListAsync();
-        return Ok(produtos);
+        var query = _context.Produtos.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(busca))
+        {
+            query = query.Where(p => EF.Functions.ILike(p.Nome, $"%{busca}%") || EF.Functions.ILike(p.Sku, $"%{busca}%"));
+        }
+
+        var total = await query.CountAsync();
+
+        var produtos = await query
+            .OrderBy(p => p.Nome)
+            .Skip((pagina - 1) * tamanhoPagina)
+            .Take(tamanhoPagina)
+            .ToListAsync();
+
+        return Ok(new
+        {
+            total,
+            pagina,
+            tamanhoPagina,
+            produtos
+        });
     }
 
     [HttpGet("{id}")]

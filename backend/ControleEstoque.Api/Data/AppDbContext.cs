@@ -49,5 +49,16 @@ public class AppDbContext : DbContext
                 DataAtualizacao = new DateTime(2026, 1, 1, 0, 0, 0, DateTimeKind.Utc)
             }
         );
+
+        modelBuilder.Entity<Usuario>().HasData(
+            new Usuario
+            {
+                Id = 1,
+                Nome = "Usuario Teste",
+                Email = "usuarioteste@gmail.com",
+                SenhaHash = "AQAAAAIAAYagAAAAEDUbRgYtVogBUDs1GQuadxHhj1TWO504YsdbiogoRGo0DvWVxupnfeFlwBtQH5jZ3Q==",
+                DataCriacao = new DateTime(2026, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+            }
+        );
     }
 }

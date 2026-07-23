@@ -3,6 +3,7 @@ using System;
 using ControleEstoque.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ControleEstoque.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260723212909_SeedUsuario")]
+    partial class SeedUsuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,7 +155,7 @@ namespace ControleEstoque.Api.Migrations
                         {
                             Id = 1,
                             DataCriacao = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Email = "usuarioteste@gmail.com",
+                            Email = "teste@keener.com",
                             Nome = "Usuario Teste",
                             SenhaHash = "AQAAAAIAAYagAAAAEDUbRgYtVogBUDs1GQuadxHhj1TWO504YsdbiogoRGo0DvWVxupnfeFlwBtQH5jZ3Q=="
                         });

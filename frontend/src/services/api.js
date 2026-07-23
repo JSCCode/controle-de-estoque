@@ -30,15 +30,15 @@ export async function registrar(nome, email, senha) {
   return await resposta.json();
 }
 
-export async function listarProdutos(token) {
-  const resposta = await fetch(`${API_URL}/produtos`, {
+export async function listarProdutos(token, busca = "", pagina = 1) {
+  const params = new URLSearchParams({ pagina, tamanhoPagina: 10 });
+  if (busca) params.append("busca", busca);
+
+  const resposta = await fetch(`${API_URL}/produtos?${params}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 
-  if (!resposta.ok) {
-    throw new Error("Erro ao carregar produtos.");
-  }
-
+  if (!resposta.ok) throw new Error("Erro ao carregar produtos.");
   return await resposta.json();
 }
 
